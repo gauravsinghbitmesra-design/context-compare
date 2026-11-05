@@ -1,0 +1,13 @@
+{
+  "name": "context-compare",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compare two reported Claude Code context snapshots in your browser.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/core.test.js tests/contracts.test.js",
+    "test:browser": "node tests/browser.cjs",
+    "start": "node scripts/serve.cjs"
+  },
+  "devDependencies": {"playwright": "1.64.1"}
+}

@@ -1,0 +1,4 @@
+Counts aren't invoices. Context Compare keeps missing data, rounded values and mismatched conditions visible. The demo uses synthetic numbers.
+Source + tests:
+https://github.com/gauravsinghbitmesra-design/context-compare
+#OpenSource

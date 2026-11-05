@@ -1,0 +1,5 @@
+Did your Claude Code setup get lighter?
+Paste two /context summaries. Compare reported categories and export a card with the caveats.
+Free, MIT, no account or API key.
+https://gauravsinghbitmesra-design.github.io/context-compare/
+#ClaudeCode

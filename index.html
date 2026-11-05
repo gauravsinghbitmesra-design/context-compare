@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compare two Claude Code /context snapshots. See reported category changes, catch inconsistent totals, and export a share card. Runs locally in your browser.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light">
+<meta property="og:title" content="Context Compare — did your setup get lighter?">
+<meta property="og:description" content="A before/after check for reported Claude Code context. No account, install or API key.">
+<meta property="og:image" content="https://gauravsinghbitmesra-design.github.io/context-compare/assets/share-card.png">
+<link rel="canonical" href="https://gauravsinghbitmesra-design.github.io/context-compare/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Context Compare — reported before & after">
+<meta name="twitter:image" content="https://gauravsinghbitmesra-design.github.io/context-compare/assets/share-card.png">
+<title>Context Compare — compare reported Claude Code context</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<script src="core.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span class="mark" aria-hidden="true">↔</span>Context Compare<span class="version">v0.1</span></a><a class="github" href="https://github.com/gauravsinghbitmesra-design/context-compare">Source on GitHub <span aria-hidden="true">↗</span></a></header>
+<main>
+<section class="hero"><div class="eyebrow">A BEFORE / AFTER CHECK FOR YOUR AI SETUP</div><h1>Did your context setup<br>get <em>lighter?</em></h1><p class="intro">Paste two Claude Code <code>/context</code> summaries.<br>See what changed in the reported counts—and what still needs checking.</p><p class="privacy"><span aria-hidden="true">●</span> Runs in this tab. No account, install, or API key.</p></section>
+<section class="workspace" aria-label="Compare snapshots">
+<div class="section-top"><div><h2>Start with two snapshots</h2><p>Keep the model, version and session conditions the same when testing a setup change.</p></div><span id="sample-badge" class="badge">Sample data</span></div>
+<div class="sample-row"><span>Try a scenario</span><button type="button" data-sample="leaner" class="chip">Leaner setup</button><button type="button" data-sample="unchanged" class="chip">No change</button><button type="button" data-sample="partial" class="chip">Missing data</button><button id="clear" type="button" class="quiet">Clear inputs</button></div>
+<div class="inputs"><div class="input-panel"><label for="before"><span class="step">01</span> Before</label><textarea id="before" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="format-help" placeholder="System prompt: 12k tokens&#10;System tools: 28k tokens&#10;MCP tools: 23k tokens"></textarea></div><div class="input-panel"><label for="after"><span class="step">02</span> After</label><textarea id="after" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="format-help" placeholder="Paste the second summary here"></textarea></div></div>
+<p id="format-help" class="small">Accepts recognized category lines, Category / Tokens tables, or <a href="https://github.com/gauravsinghbitmesra-design/context-compare/blob/main/docs/formats.md">snapshot JSON</a>. 64 KiB per input. Per-file and per-tool detail is ignored.</p>
+<div class="compare-controls"><label class="select-label" for="mode">Compare <select id="mode"><option value="setup">Setup categories</option><option value="all">Setup + messages</option></select></label><label class="check-label"><input id="matched" type="checkbox"> I kept the model, version and session conditions the same</label><button id="compare" type="button" class="primary">Compare snapshots <span aria-hidden="true">→</span></button></div>
+<div id="error" role="alert" hidden></div>
+</section>
+<section id="results" aria-label="Comparison results" hidden>
+<div class="result-heading"><div><div class="eyebrow">REPORTED CHANGE</div><h2 id="report-delta"></h2><p id="report-scope"></p></div><span class="result-stamp">COUNTS ≠ BILLING</span></div>
+<div class="metrics"><div class="metric"><span>Before · shared categories</span><strong id="before-total"></strong></div><div class="metric"><span>After · shared categories</span><strong id="after-total"></strong></div><div class="metric"><span>Change across those categories</span><strong id="percent"></strong></div></div>
+<div class="breakdown"><div class="section-top"><h3>The category breakdown</h3><div class="legend"><span><i class="before-dot"></i>Before</span><span><i class="after-dot"></i>After</span></div></div><div class="table-wrap"><table><thead><tr><th scope="col">Category</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Reported Δ</th><th scope="col" class="bar-heading">Relative size</th></tr></thead><tbody id="rows"></tbody></table></div><p class="small">Only shared, selected categories contribute to the totals. Missing values stay missing. Free space and compaction reserves are excluded.</p></div>
+<div class="cautions"><h3>Read this with the result</h3><ul id="warnings"></ul><p>These are CLI-reported, possibly rounded figures. They cannot establish invoice costs, plan-quota savings or actual request payload size.</p></div>
+<div class="next-step"><span class="step">NEXT</span><p id="next-action"></p></div>
+</section>
+<div class="export-row"><div><strong>Keep the evidence.</strong><p class="small">Exports include known category counts and cautions, never the pasted text.</p></div><div class="export-buttons"><button id="copy-report" type="button" disabled>Copy report</button><button id="download-json" type="button" disabled>Export JSON</button><button id="download-png" type="button" class="primary" disabled>Download share card</button></div></div><p id="status" role="status" class="small"></p>
+<section class="how-to"><h2>A useful comparison takes one small change.</h2><ol><li><strong>Capture the baseline.</strong> Run <code>/context</code> in a fresh session. Copy its category summary.</li><li><strong>Change one thing.</strong> For example, review a long memory file or an optional MCP connection you do not need.</li><li><strong>Repeat the conditions.</strong> Capture a second fresh-session summary. Compare here, then test the workflow still works.</li></ol><p>Claude Code already has native usage analysis. This tool is a small, shareable before/after check. <a href="https://code.claude.com/docs/en/costs#reduce-mcp-server-overhead">Read the official guidance ↗</a></p></section>
+</main>
+<footer><span>Built by <a href="https://github.com/gauravsinghbitmesra-design">Gaurav Singh</a> · MIT licensed</span><span><a href="https://github.com/gauravsinghbitmesra-design/context-compare/issues/new/choose">Report an unsupported format</a> · Your input is not stored or uploaded by this app.</span></footer>
+<noscript><p>This tool requires JavaScript. All comparison runs locally; no model API is used.</p></noscript>
+</body></html>

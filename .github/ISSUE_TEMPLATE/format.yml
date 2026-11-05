@@ -1,0 +1,16 @@
+name: Unsupported format or incorrect comparison
+description: Share a synthetic summary, never private transcripts or credentials.
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Minimal synthetic before/after summary
+      description: Replace private values and names. Include relevant categories and model/tool version if appropriate. Do not paste raw session logs or API keys.
+    validations:
+      required: true

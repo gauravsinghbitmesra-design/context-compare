@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gauravsinghbitmesra-design.github.io/context-compare/sitemap.xml
