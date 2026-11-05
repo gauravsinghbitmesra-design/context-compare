@@ -11,7 +11,7 @@ Prepared 2026-11-05. These are materials to publish, not evidence of posts alrea
 - [Reddit launch draft](reddit-launch.md): author-disclosed feedback post aimed at Claude Code users; use only where current rules/flair permit.
 - [Relevant reply draft](reddit-reply.md): a useful answer to a concrete baseline-context question, not a generic link drop.
 - [Discovery targets](targets.md): exact discussions and why they fit, with freshness/rule limitations.
-- [Synthetic card](../assets/share-card.png) and [demo recording](demo.webm): the sample is not a real measured improvement.
+- [Synthetic card](../assets/share-card.png) and [demo recording](demo.mp4): the sample is not a real measured improvement.
 
 ## First-week plan
 
