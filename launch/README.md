@@ -36,3 +36,5 @@ If you get 100 relevant visits and no one confirms a useful result, interview us
 Keep a private table with date, channel/post URL, visitors/referrers/clones reported by GitHub, voluntary useful-comparison reports, issues, stars and forks. Do not commit identifying visitor data or private analytics. The app itself makes no analytics requests. Social draft links do not contain tracking identifiers.
 
 No paid ads, accounts, platform integrations or scheduled outreach are created by this repository. Posting still requires a selected account and actual platform access; a draft is not a published advertisement.
+
+Measurement limit: GitHub traffic measures repository visits, not all live-app usage. With no app telemetry, successful comparisons are confirmed through voluntary feedback; do not claim an activation rate from source-repository views alone.

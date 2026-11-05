@@ -17,9 +17,9 @@ compareSnapshots(before,after,{mode:'setup'|'all',conditionsMatched:boolean=fals
 One page, light warm paper/ink style, strong hierarchy. Header one-sentence purpose, privacy note, visible synthetic example buttons (leaner/unchanged/missing categories), two labeled inputs, comparison mode and operator condition checkbox, compare button. Results: reported before/after selected-category totals and delta, paired bars/table with numeric values, warnings, concrete evidence-oriented next steps with links to official docs. Copy Markdown and download PNG card/JSON. Sample data clearly labeled in screen and exports. Input edits invalidate old result so stale exports impossible. Copy/download disabled when no valid result. Errors never echo raw inputs. Keyboard/mobile/empty/error paths tested. No claims of automatic actual Claude/Codex integration; manual JSON usable for other tools if categories match.
 
 ## Work plan
-- [ ] Research demand, competition, native capabilities and source limitations. Capture dated sources and targeted outreach drafts; no fake trending/ranking claims.
-- [ ] RED then GREEN: strict parser, comparison, safe aggregate exports; fixture and edge tests.
-- [ ] Build UI, run browser functional/mobile/privacy tests (including no outbound requests after load, no storage writes and malicious input).
-- [ ] Docs: scope, formats/examples, privacy, local-agent prompts, licenses, contributing, clear demo screenshot, CI.
-- [ ] Independent correctness review, fix and rerun; publish repository + GitHub Pages + relevant topics + profile entry + release after CI.
-- [ ] Produce platform-specific launch copy, short demo video, exact relevant conversation links and measurable first-week plan. Public posting awaits the user's selected account and actual platform access; never impersonate or post to old support issues as ads.
+- [x] Research demand, competition, native capabilities and source limitations. Capture dated sources and targeted outreach drafts; no fake trending/ranking claims.
+- [x] RED then GREEN: strict parser, comparison, safe aggregate exports; fixture and edge tests.
+- [x] Build UI, run browser functional/mobile/privacy tests (including no outbound requests after load, no storage writes and malicious input).
+- [x] Docs: scope, formats/examples, privacy, local-agent prompts, licenses, contributing, clear demo screenshot, CI.
+- [x] Independent correctness review, fix and rerun; publish repository + GitHub Pages + relevant topics + profile entry + release after CI.
+- [x] Produce platform-specific launch copy, short demo video, exact relevant conversation links and measurable first-week plan. Public posting awaits the user's selected account and actual platform access; never impersonate or post to old support issues as ads.
